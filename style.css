@@ -1,0 +1,153 @@
+/* RESET */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+:root {
+	--bg-light: #edf2fb;
+	--bg-white: #f9f7f7;
+
+	--color-dark: #212529;
+
+	--btn-bg-1: #fcd7d7;
+	--btn-bg-2: #b6ccfe;
+	--btn-bg-3: #b6d8fe;
+}
+
+/* GENERAL STYLES */
+html {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 110%;
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--bg-light);
+	color: var(--color-dark);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 0.5rem;
+}
+
+button:hover {
+	opacity: 0.75;
+}
+
+/* HEADER SECTION */
+.header {
+	padding: 1rem;
+}
+
+.header__title {
+	font-size: 2.5rem;
+	text-align: center;
+}
+
+/* MAIN SECTION */
+.main {
+	padding: 3rem;
+	height: min-content;
+}
+
+.calculator_wrapper {
+	background-color: var(--bg-white);
+	box-shadow: 0 1px 3px var(--color-dark);
+	border-radius: 0.5em;
+	padding: 1rem;
+}
+
+.calculator_display {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 1rem;
+}
+
+.calculator_display input {
+	font-size: 2rem;
+	font-weight: bold;
+	padding: 1rem;
+	text-align: right;
+	width: 100%;
+}
+
+.calculator_keys {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: 0.2rem;
+}
+
+.calculator_keys button {
+	background: var(--btn-bg-3);
+}
+
+.span {
+	grid-column: span 2;
+}
+
+.clear {
+	background: var(--btn-bg-2) !important;
+}
+
+.delete {
+	background: var(--btn-bg-1) !important;
+}
+
+/* FOOTER SECTION */
+.footer {
+	border: 1px solid black;
+	padding: 1rem;
+}
+
+.footer__h2 {
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 499px) {
+	.header__title {
+		font-size: 2rem;
+	}
+
+	.main {
+		height: 80vh;
+		padding: 1rem;
+	}
+
+	.calculator_display input {
+		font-size: 1.5rem;
+		padding: 1rem 0.5rem;
+	}
+
+	.footer__h2 {
+		font-size: 1.2rem;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	.main {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
+
+	.calculator_wrapper {
+		max-width: 500px;
+	}
+}
