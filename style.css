@@ -13,9 +13,9 @@
 
 	--color-dark: #212529;
 
-	--btn-bg-1: #fcd7d7;
-	--btn-bg-2: #b6ccfe;
-	--btn-bg-3: #b6d8fe;
+	--btn-bg-1: #fbcbcb;
+	--btn-bg-2: #9fbbfc;
+	--btn-bg-3: #abd0f9;
 }
 
 /* GENERAL STYLES */
@@ -92,12 +92,9 @@ button:hover {
 	grid-gap: 0.2rem;
 }
 
-.calculator_keys button {
-	background: var(--btn-bg-3);
-}
-
 .span {
-	grid-column: span 2;
+	font-size: 1.2rem;
+	grid-row: span 3;
 }
 
 .clear {
@@ -106,6 +103,16 @@ button:hover {
 
 .delete {
 	background: var(--btn-bg-1) !important;
+	grid-column: span 2;
+}
+
+.operator {
+	background: var(--btn-bg-2);
+}
+
+.operand,
+.equals {
+	background: var(--btn-bg-3);
 }
 
 /* FOOTER SECTION */
