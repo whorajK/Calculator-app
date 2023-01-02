@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equivhttps://github.com/whorajK content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>CALCULATOR APP</title>
-		<script src="script.js" defer></script>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<!-- HEADER SECTION -->
-		<header class="header">
-			<h1 class="header__title">CALCULATOR APP</h1>
-		</header>
 
-		<!-- MAIN SECTION -->
-		<main class="main">
-			<div class="calculator_wrapper">
-				<div class="calculator_display">
-					<input type="text" placeholder="0" id="display" />
-				</div>
-				<div class="calculator_keys">
-					<button class="operator">&div;</button>
-					<button class="operator">&times;</button>
-					<button class="operator">&minus;</button>
-					<button class="operator">+</button>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
 
-					<button class="operand">7</button>
-					<button class="operand">8</button>
-					<button class="operand">9</button>
+<body>
+    <article class="wrapper">
+        <span class="toggle-btn">
+            <i class="bi bi-circle-fill"></i>
+        </span>
 
-					<button class="clear span" id="clear">CLEAR</button>
-					<button class="operand">4</button>
-					<button class="operand">5</button>
-					<button class="operand">6</button>
+        <div class="display-section">
+            <small>Calculator</small>
+            <div class="display-section--output">
+                <input class="previous-output">
+                <input class="current-output" placeholder="0">
+            </div>
+        </div>
+        </div>
+        </div>
 
-					<button class="operand">1</button>
-					<button class="operand">2</button>
-					<button class="operand">3</button>
+        <div class="keys-section">
+            <div class="keys-section--container">
+                <button class="clear" id="clear">C</button>
+                <button class="delete">Del</button>
+                <button class="operator">&percnt;</button>
+                <button class="operator">&div;</button>
 
-					<button class="operand">0</button>
-					<button class="equals" id="evaluate">=</button>
-					<button class="delete" id="delete">DELETE</button>
-				</div>
-			</div>
-		</main>
+                <button class="operand">1</button>
+                <button class="operand">2</button>
+                <button class="operand">3</button>
+                <button class="operator">X</button>
 
-		<!-- FOOTER SECTION -->
-		<footer class="footer">
-			<h2 class="footer__h2">
-				Created by
-				<a href="https://github.com/whorajK">Raj Changappa</a>
-			</h2>
-		</footer>
-	</body>
+                <button class="operand">4</button>
+                <button class="operand">5</button>
+                <button class="operand">6</button>
+                <button class="operator">+</button>
+
+                <button class="operand">7</button>
+                <button class="operand">8</button>
+                <button class="operand">9</button>
+                <button class="operator">&minus;</button>
+
+                <button class="operand">.</button>
+                <button class="operand">0</button>
+                <button class="operand">000</button>
+                <button class="equals">=</button>
+            </div>
+        </div>
+    </article>
+</body>
+
 </html>

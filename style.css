@@ -1,160 +1,131 @@
-/* RESET */
+/* RESET AND ROOT */
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 :root {
-	--bg-light: #edf2fb;
-	--bg-white: #f9f7f7;
-
-	--color-dark: #212529;
-
-	--btn-bg-1: #fbcbcb;
-	--btn-bg-2: #9fbbfc;
-	--btn-bg-3: #abd0f9;
+    --bg-body: #e3e1e1;
+    --bg-dark: #010137;
+    --bg-light: #fefefe;
+    --color-light: #fefefe;
+    --color-dark: #0a0a0a;
+    --color-r: #fa4b2c;
+    --color-b: #047cfc;
 }
 
 /* GENERAL STYLES */
-html {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 110%;
-	scroll-behavior: smooth;
-}
-
 body {
-	background: var(--bg-light);
-	color: var(--color-dark);
-}
-
-a {
-	color: inherit;
-	text-decoration: none;
+    align-items: center;
+    background-color: var(--bg-body);
+    color: var(--color-dark);
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 button {
-	background: transparent;
-	border: none;
-	cursor: pointer;
-	outline: none;
-	font-size: 1.5rem;
-	font-weight: bold;
-	padding: 0.5rem;
+    background: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    outline: none;
+    padding: 1rem;
+    transition: all ease .2s;
 }
 
 button:hover {
-	opacity: 0.75;
+    opacity: .75;
 }
 
-/* HEADER SECTION */
-.header {
-	padding: 1rem;
+input {
+    background: transparent;
+    border: none;
+    color: inherit;
+    outline: none;
+    text-align: right;
 }
 
-.header__title {
-	font-size: 2.5rem;
-	text-align: center;
+/* CALCULATOR */
+.wrapper {
+    background-color: var(--bg-light);
+    border-radius: 1em;
+    box-shadow: 0 1px 3px var(--bg-dark);
+    color: var(--color-dark);
+    max-width: 500px;
+    position: relative;
 }
 
-/* MAIN SECTION */
-.main {
-	padding: 3rem;
-	height: min-content;
+.display-section {
+    padding: 1rem;
+    background-color: var(--color-light);
+    border-radius: 1em 1em 0 0;
+    font-weight: bold;
 }
 
-.calculator_wrapper {
-	background-color: var(--bg-white);
-	box-shadow: 0 1px 3px var(--color-dark);
-	border-radius: 0.5em;
-	padding: 1rem;
+.display-section small {
+    font-size: .95rem;
+    display: block;
+    text-align: center;
 }
 
-.calculator_display {
-	display: flex;
-	justify-content: center;
-	padding-bottom: 1rem;
+.display-section--output {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-align: right;
 }
 
-.calculator_display input {
-	font-size: 2rem;
-	font-weight: bold;
-	padding: 1rem;
-	text-align: right;
-	width: 100%;
+.previous-output {
+    font-size: 1.3rem;
+    opacity: .85;
 }
 
-.calculator_keys {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-gap: 0.2rem;
+.current-output {
+    font-size: 2rem;
 }
 
-.span {
-	font-size: 1.2rem;
-	grid-row: span 3;
+.keys-section {
+    border-top: 2px solid var(--color-dark);
+    margin-bottom: .5rem;
+}
+
+.keys-section--container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .clear {
-	background: var(--btn-bg-2) !important;
+    color: var(--color-r);
 }
 
-.delete {
-	background: var(--btn-bg-1) !important;
-	grid-column: span 2;
-}
-
+.delete,
 .operator {
-	background: var(--btn-bg-2);
+    color: var(--color-b);
 }
 
-.operand,
 .equals {
-	background: var(--btn-bg-3);
+    color: var(--color-r);
 }
 
-/* FOOTER SECTION */
-.footer {
-	border: 1px solid black;
-	padding: 1rem;
+/* toggle button */
+.toggle-btn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    right: 3%;
+    position: absolute;
+    top: 3%;
 }
 
-.footer__h2 {
-	font-size: 1.5rem;
-	text-align: center;
-}
-
-/* MEDIA QUERIES */
-@media screen and (max-width: 499px) {
-	.header__title {
-		font-size: 2rem;
-	}
-
-	.main {
-		height: 80vh;
-		padding: 1rem;
-	}
-
-	.calculator_display input {
-		font-size: 1.5rem;
-		padding: 1rem 0.5rem;
-	}
-
-	.footer__h2 {
-		font-size: 1.2rem;
-	}
-}
-
-@media screen and (min-width: 500px) {
-	.main {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-	}
-
-	.calculator_wrapper {
-		max-width: 500px;
-	}
+/* dark mode */
+.dark {
+    background-color: var(--bg-dark);
+    color: var(--color-light);
 }

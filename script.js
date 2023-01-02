@@ -1,66 +1,66 @@
-const display = document.querySelector("#display");
-const operandBtns = document.querySelectorAll(".operand");
-const operatorBtns = document.querySelectorAll(".operator");
+// VARIABLES
+const previousOutput = document.querySelector('.previous-output');
+const currentOutput = document.querySelector('.current-output');
 
-const deleteBtn = document.querySelector("#delete");
-const clearBtn = document.querySelector("#clear");
-const evaluateBtn = document.querySelector("#evaluate");
+const operandBtns = document.querySelectorAll('.operand');
+const operatorBtns = document.querySelectorAll('.operator');
+const evaluateBtn = document.querySelector('.equals');
+const deleteBtn = document.querySelector('.delete');
+const clearBtn = document.querySelector('.clear');
 
-// GET USER INPUT AND DISPLAY
-operandBtns.forEach((operand) => {
-	operand.addEventListener("click", (e) => {
-		display.value += operand.textContent;
-	});
-});
+const toggleBtn = document.querySelector('.toggle-btn');
 
-operatorBtns.forEach((operator) => {
-	operator.addEventListener("click", (e) => {
-		display.value += operator.textContent;
-	});
-});
+let input = '';
 
-// EVALUATE
-function evaluate() {
-	let result = [];
-	let evaluation;
+// EVENTLISTNERS
+operandBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        input += e.target.textContent;
+        previousOutput.value = input;
+    })
+})
 
-	if (display.value.includes("+")) {
-		result = display.value.split("+");
-		evaluation = parseInt(result[0]) + parseInt(result[1]);
+operatorBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        if (input === '') {
+            alert('Enter a Number first!')
+        } else {
+            if (e.target.textContent === "÷") {
+                input += '/';
+                previousOutput.value = input;
+            } else if (e.target.textContent === 'X') {
+                input += '*';
+                previousOutput.value = input;
+            } else if (e.target.textContent === '−') {
+                input += '-';
+                previousOutput.value = input;
+            }
+            else {
+                input += e.target.textContent;
+                previousOutput.value = input;
+            }
+        }
+    })
+})
 
-		display.value = evaluation;
-	} else if (display.value.includes("−")) {
-		result = display.value.split("−");
-		evaluation = parseInt(result[0]) - parseInt(result[1]);
+deleteBtn.addEventListener('click', () => {
+    input = input.slice(0, -1);
+    previousOutput.value = input;
+})
 
-		display.value = evaluation;
-	} else if (display.value.includes("×")) {
-		result = display.value.split("×");
-		evaluation = parseInt(result[0]) * parseInt(result[1]);
+clearBtn.addEventListener('click', () => {
+    input = ' ';
+    previousOutput.value = input;
+    currentOutput.value = ''
+})
 
-		display.value = evaluation;
-	} else {
-		result = display.value.split("÷");
-		evaluation = parseInt(result[0]) / parseInt(result[1]);
+evaluateBtn.addEventListener('click', () => {
+    currentOutput.value = eval(input);
+})
 
-		display.value = evaluation;
-	}
-}
-
-// UPDATE CALCULATOR DISPLAY
-function updateDisplay() {
-	clearBtn.addEventListener("click", () => {
-		display.value = "";
-	});
-
-	deleteBtn.addEventListener("click", () => {
-		let string = display.value;
-		string = string.substring(0, string.length - 1);
-
-		display.value = string;
-	});
-
-	evaluateBtn.addEventListener("click", evaluate);
-}
-
-updateDisplay();
+// TOGGLE FUNTION
+toggleBtn.addEventListener('click', () => {
+    document.querySelector('.wrapper').classList.toggle('dark');
+    document.querySelector('.display-section').classList.toggle('dark');
+    document.querySelector('.keys-section').classList.toggle('dark');
+})
